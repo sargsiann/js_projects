@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do App & Color Changer</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #color-box {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Changer</h1>
+    <div id="color-box"></div>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="resetColor()">Reset</button>
+
+    <script>
+        function changeColor() {
+            let colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById("color-box").style.backgroundColor = randomColor;
+        }
+        function resetColor() {
+            document.getElementById("color-box").style.backgroundColor = "lightgray";
+        }
+    </script>
+</body>
+</html>
