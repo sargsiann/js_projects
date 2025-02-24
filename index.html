@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #todo-container {
+            width: 300px;
+            margin: 0 auto;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #f3f3f3;
+            padding: 10px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            background: red;
+            color: white;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <div id="todo-container">
+        <input type="text" id="todo-input" placeholder="Enter task">
+        <button onclick="addTodo()">Add</button>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script>
+        function addTodo() {
+            let input = document.getElementById("todo-input");
+            let todoText = input.value;
+            if (todoText === "") return;
+
+            let list = document.getElementById("todo-list");
+            let li = document.createElement("li");
+            li.textContent = todoText;
+
+            let removeBtn = document.createElement("button");
+            removeBtn.textContent = "X";
+            removeBtn.onclick = function() {
+                list.removeChild(li);
+            };
+            
+            li.appendChild(removeBtn);
+            list.appendChild(li);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
